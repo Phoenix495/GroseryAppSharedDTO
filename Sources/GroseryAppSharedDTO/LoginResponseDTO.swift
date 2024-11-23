@@ -19,12 +19,4 @@ public struct LoginResponseDTO: Codable {
         self.token = token
         self.userId = userId
     }
-    
-    public init(from decoder: any Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.error = try container.decode(Bool.self, forKey: .error)
-        self.reason = try container.decodeIfPresent(String.self, forKey: .reason)
-        self.token = try container.decodeIfPresent(String.self, forKey: .token)
-        self.userId = try container.decodeIfPresent(UUID.self, forKey: .userId)
-    }
 }

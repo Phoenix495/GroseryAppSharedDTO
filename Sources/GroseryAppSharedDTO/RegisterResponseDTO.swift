@@ -16,10 +16,4 @@ public struct RegisterResponseDTO: Codable {
         self.error = error
         self.reason = reason
     }
-    
-    public init(from decoder: any Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.error = try container.decode(Bool.self, forKey: .error)
-        self.reason = try container.decodeIfPresent(String.self, forKey: .reason)
-    }
 }
